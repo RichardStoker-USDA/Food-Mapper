@@ -1,0 +1,26 @@
+# Core Shiny dependencies
+shiny>=1.0,<2
+shinyswatch>=0.6,<1
+
+# Data processing
+pandas>=2.0,<2.3
+numpy>=1.26,<2.2
+jinja2>=3.1,<4  # Required for pandas DataFrame styling in Shiny
+
+# Text matching algorithms
+rapidfuzz>=3.0,<4
+scikit-learn>=1.4,<1.6
+scipy>=1.11,<2  # For density estimation in visualizations
+sentence-transformers>=2.3,<3  # For local CPU embedding fallback
+
+# DeepInfra API (using OpenAI client)
+openai>=1.30,<2
+httpx[http2]>=0.27,<0.28  # Enable HTTP/2 support (installs h2)
+
+# Visualization
+matplotlib>=3.7,<4
+plotly>=5.18,<6
+shinywidgets>=0.3,<1  # For plotly output
+
+# File handling
+python-multipart>=0.0.9,<0.1
