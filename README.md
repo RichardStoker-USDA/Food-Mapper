@@ -1,14 +1,27 @@
 ---
-title: Food Mapper
+title: FoodMapper
+emoji: 🖇️
 colorFrom: green
 colorTo: blue
 sdk: docker
 app_port: 7860
-pinned: false
+pinned: true
+header: mini
+models:
+  - thenlper/gte-large
+tags:
+  - food-science
+  - food-database
+  - semantic-search
+  - usda
+  - nutrition
+  - match-food-databases
+  - python
+  - shiny
 license: cc0-1.0
 ---
 
-# Food Mapper
+# FoodMapper
 
 A neural embedding-based tool for matching food descriptions across nutritional databases.
 
@@ -18,9 +31,11 @@ A neural embedding-based tool for matching food descriptions across nutritional 
 
 ## Overview
 
-Food Mapper is a research application developed at the USDA Agricultural Research Service that solves the problem of matching food items between databases that use different naming conventions. The tool uses semantic embeddings to understand the meaning behind food descriptions, enabling accurate matches even when exact text differs.
+FoodMapper is a research application developed at the USDA Agricultural Research Service that solves the problem of matching food items between databases that use different naming conventions. The tool uses semantic embeddings to understand the meaning behind food descriptions, enabling accurate matches even when exact text differs.
 
-**Hosted Application**: [Semantic Food Mapper on Hugging Face Spaces](https://huggingface.co/spaces/richtext/semantic-food-mapper)
+### **[Click Here to Try FoodMapper](https://huggingface.co/spaces/richtext/semantic-food-mapper)**
+
+No installation required - the application is hosted and ready to use on Hugging Face Spaces.
 
 ## Research Context
 
@@ -33,7 +48,7 @@ This application was developed as part of research on automated dietary data map
 
 - **Semantic Matching**: Uses GTE-Large neural embeddings to match based on meaning
 - **Batch Processing**: Handle thousands of items efficiently  
-- **Interactive Visualizations**: 8 chart types for exploring match distributions
+- **Interactive Visualizations**: 7 chart types for exploring match distributions
 - **Text Cleaning**: Optional preprocessing with live preview
 - **Data Export**: Download results as CSV with all original data preserved
 - **API with CPU Fallback**: Uses API for fast processing, falls back to CPU if unavailable
@@ -184,7 +199,7 @@ The repository includes automated deployment workflow:
 
 ## Citation
 
-If you use Food Mapper in your research, please cite:
+If you use FoodMapper in your research, please cite:
 
 [Citation placeholder - to be updated upon publication]
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Food Mapper - Semantic Matching Application
+FoodMapper - Semantic Matching Application
 USDA Agricultural Research Service, Western Human Nutrition Research Center
 
 Matches food descriptions between databases using neural embeddings (GTE-Large model).
@@ -2071,9 +2071,9 @@ app_ui = ui.page_sidebar(
             ui.nav_panel(
                 "About",
                 ui.card(
-                    ui.card_header("About Food Mapper"),
+                    ui.card_header("About FoodMapper"),
                     ui.card_body(
-                        ui.h4("Food Mapper", class_="mb-3"),
+                        ui.h4("FoodMapper", class_="mb-3"),
                         ui.p("A state-of-the-art tool for matching food descriptions across different databases using advanced natural language processing techniques.", class_="lead"),
                         ui.hr(),
                         ui.h5(ui.tags.i(class_="bi bi-stars me-2"), "Key Features"),
@@ -2087,7 +2087,7 @@ app_ui = ui.page_sidebar(
                 )
             ),
             id="main_tabs",
-            title="Food Mapper"
+            title="FoodMapper"
         ),
     ui.br(),
     ui.div(
@@ -2356,18 +2356,19 @@ app_ui = ui.page_navbar(
                     ui.card_header("Interactive Visualizations"),
                     ui.card_body(
                         ui.row(
-                            ui.column(7, 
-                                ui.input_select("plotly_viz_type", "Chart Type", 
+                            ui.column(7,
+                                ui.input_select("plotly_viz_type", "Chart Type",
                                     choices={
                                         "density": "Density Plot - Score distribution shape",
                                         "histogram": "Histogram - Frequency of score ranges",
-                                        "box": "Box Plot - Quartiles & outliers",
-                                        "violin": "Violin Plot - Match vs No-match comparison",
-                                        "scatter": "Scatter Plot - Sequential patterns",
-                                        "ecdf": "Cumulative Distribution - Probability curve",
-                                        "threshold": "Threshold Analysis - Match rate at different cutoffs",
-                                        "sunburst": "Match Breakdown - Hierarchical match statistics"
-                                    }, 
+                                        "threshold": "Threshold Analysis - Match rate at different cutoffs"
+                                        # HIDDEN VISUALIZATIONS - Uncomment lines below to restore
+                                        # "box": "Box Plot - Quartiles & outliers",
+                                        # "violin": "Violin Plot - Match vs No-match comparison",
+                                        # "scatter": "Scatter Plot - Sequential patterns",
+                                        # "ecdf": "Cumulative Distribution - Probability curve",
+                                        # "sunburst": "Match Breakdown - Hierarchical match statistics"
+                                    },
                                     selected="density",
                                     width="100%"
                                 )
@@ -2453,12 +2454,12 @@ app_ui = ui.page_navbar(
         ui.div(
             ui.card(
                 ui.card_header(
-                    ui.h4("About Food Mapper", class_="mb-0")
+                    ui.h4("About FoodMapper", class_="mb-0")
                 ),
                 ui.card_body(
                     # Hero Section
                     ui.div(
-                        ui.h2("Food Mapper", class_="text-center mb-3"),
+                        ui.h2("FoodMapper", class_="text-center mb-3"),
                         ui.p(
                             "Advanced semantic matching tool for aligning food descriptions across nutritional databases",
                             class_="lead text-center text-muted mb-4"
@@ -2474,7 +2475,7 @@ app_ui = ui.page_navbar(
                             class_="mb-3"
                         ),
                         ui.p(
-                            "Food Mapper solves a major problem in nutritional research: accurately matching "
+                            "FoodMapper solves a major problem in nutritional research: accurately matching "
                             "food items between different databases that use varying naming conventions and descriptions. "
                             "This tool uses neural language processing to find semantic matches "
                             "based on meaning rather than exact text matching.",
@@ -2514,7 +2515,7 @@ app_ui = ui.page_navbar(
                             class_="mb-3 mt-4"
                         ),
                         ui.p(
-                            "Food Mapper uses semantic embeddings to understand the meaning behind food descriptions, "
+                            "FoodMapper uses semantic embeddings to understand the meaning behind food descriptions, "
                             "enabling accurate matches even when the exact wording differs.",
                             class_="mb-3"
                         ),
@@ -2698,16 +2699,14 @@ app_ui = ui.page_navbar(
             style="max-width: 1200px; margin: 0 auto; padding: 20px;"
         )
     ),
-    # Add spacer to push dark mode toggle to the right
-    ui.nav_spacer(),
-    # Add dark mode toggle in the navbar
-    ui.nav_control(
-        ui.input_dark_mode(id="dark_mode", mode="light")
-    ),
     title=ui.tags.div(
         ui.tags.h2(
-            "Food Mapper", 
-            style="margin: 0 2rem 0 0; font-size: 1.9rem; font-weight: 700; letter-spacing: 0.5px; padding-right: 2rem; border-right: 2px solid var(--bs-gray-400, #ced4da);"
+            "FoodMapper", 
+            style="margin: 0 1rem 0 0; font-size: 1.9rem; font-weight: 700; letter-spacing: 0.5px; padding-right: 1rem; border-right: 2px solid var(--bs-gray-400, #ced4da);"
+        ),
+        ui.tags.div(
+            ui.input_dark_mode(id="dark_mode", mode="light"),
+            style="margin-left: 1rem;"
         ),
         style="display: flex; align-items: center;"
     ),
@@ -2772,7 +2771,7 @@ def server(input: Inputs, output: Outputs, session: Session):
                 ui.modal(
                     ui.div(
                         # Header
-                        ui.h2("Food Mapper", class_="text-center mb-2"),
+                        ui.h2("FoodMapper", class_="text-center mb-2"),
                         ui.p(
                             "Research Tool for Dietary Data Mapping",
                             class_="text-center text-muted mb-4"
@@ -2838,7 +2837,7 @@ def server(input: Inputs, output: Outputs, session: Session):
                                 class_="mb-3"
                             ),
                             ui.p(
-                                "Food Mapper uses the GTE-Large neural embedding model to understand the meaning "
+                                "FoodMapper uses the GTE-Large neural embedding model to understand the meaning "
                                 "behind food descriptions. This enables accurate matching even when foods are described "
                                 "differently across databases.",
                                 class_="small mb-2"
@@ -3830,12 +3829,13 @@ def server(input: Inputs, output: Outputs, session: Session):
         descriptions = {
             "density": "**Density Plot**: Shows probability density of scores. Higher peaks = more concentrated scores. Rug plot below shows individual points.",
             "histogram": "**Histogram**: Frequency of scores in bins. Height = count in each range. Shows mean and median.",
-            "box": "**Box Plot**: Shows quartiles (Q1, median, Q3) and outliers. Box = middle 50% of data.",
-            "violin": "**Violin Plot**: Distribution shape split by match/no-match status. Width = data density.",
-            "scatter": "**Scatter Plot**: Each point is one item (index vs score). Blue = match, red = no match. Shows sequential patterns.",
-            "ecdf": "**Cumulative Distribution**: Shows % of data at or below each score. Answers 'what % scores below X?'",
-            "threshold": "**Threshold Analysis**: Shows how match percentage changes at different threshold values. Helps find optimal cutoff point.",
-            "sunburst": "**Match Breakdown**: Hierarchical view of match statistics. Inner ring shows overall split, outer rings show score ranges."
+            "threshold": "**Threshold Analysis**: Shows how match percentage changes at different threshold values. Helps find optimal cutoff point."
+            # HIDDEN DESCRIPTIONS - Keep in sync with hidden visualizations above
+            # "box": "**Box Plot**: Shows quartiles (Q1, median, Q3) and outliers. Box = middle 50% of data.",
+            # "violin": "**Violin Plot**: Distribution shape split by match/no-match status. Width = data density.",
+            # "scatter": "**Scatter Plot**: Each point is one item (index vs score). Blue = match, red = no match. Shows sequential patterns.",
+            # "ecdf": "**Cumulative Distribution**: Shows % of data at or below each score. Answers 'what % scores below X?'",
+            # "sunburst": "**Match Breakdown**: Hierarchical view of match statistics. Inner ring shows overall split, outer rings show score ranges."
         }
         desc = descriptions.get(viz_type, "")
         if desc:
@@ -4143,110 +4143,111 @@ def server(input: Inputs, output: Outputs, session: Session):
                 xaxis=dict(range=[0, 1])
             )
         
-        elif viz_type == "sunburst":
-            # Sunburst chart - hierarchical match breakdown
-            # Create hierarchical data for sunburst
-            total = len(df_clean)
-            
-            # Calculate match/no-match counts
-            if 'status' in df_clean.columns:
-                match_mask = df_clean['status'] != 'NO MATCH'
-            else:
-                match_mask = df_clean['similarity_score'] >= threshold if threshold else df_clean['similarity_score'] >= 0.85
-            
-            matched = match_mask.sum()
-            no_match = total - matched
-            
-            # Create score bins for matched items
-            matched_df = df_clean[match_mask]
-            
-            # Define score ranges
-            labels = []
-            parents = []
-            values = []
-            colors = []
-            
-            # Root level
-            labels.append("All Items")
-            parents.append("")
-            values.append(total)
-            colors.append("#94a3b8")
-            
-            # Match/No Match level
-            if matched > 0:
-                labels.append("Matched")
-                parents.append("All Items")
-                values.append(matched)
-                colors.append("#4e79a7")
-                
-                # Score ranges for matched items - dynamic based on threshold
-                if len(matched_df) > 0:
-                    scores_matched = matched_df['similarity_score']
-                    
-                    # Calculate dynamic ranges based on user's threshold
-                    # Use the actual threshold value, defaulting to 0.85 if not set
-                    thresh_val = threshold if threshold else 0.85
-                    
-                    # High confidence: threshold + 0.10 or higher (capped at 1.0)
-                    high_threshold = min(thresh_val + 0.10, 1.0)
-                    high_conf = (scores_matched >= high_threshold).sum()
-                    if high_conf > 0:
-                        labels.append(f"High (≥{high_threshold:.2f}): {high_conf}")
-                        parents.append("Matched")
-                        values.append(high_conf)
-                        colors.append("#059669")
-                    
-                    # Good confidence: threshold + 0.05 to threshold + 0.10
-                    good_lower = thresh_val + 0.05
-                    good_upper = high_threshold
-                    if good_lower < 1.0:  # Only show if range is valid
-                        good_conf = ((scores_matched >= good_lower) & (scores_matched < good_upper)).sum()
-                        if good_conf > 0:
-                            labels.append(f"Good ({good_lower:.2f}-{good_upper:.2f}): {good_conf}")
-                            parents.append("Matched")
-                            values.append(good_conf)
-                            colors.append("#0ea5e9")
-                    
-                    # Moderate confidence: threshold to threshold + 0.05
-                    mod_lower = thresh_val
-                    mod_upper = min(thresh_val + 0.05, 1.0)
-                    moderate_conf = ((scores_matched >= mod_lower) & (scores_matched < mod_upper)).sum()
-                    if moderate_conf > 0:
-                        labels.append(f"Moderate ({mod_lower:.2f}-{mod_upper:.2f}): {moderate_conf}")
-                        parents.append("Matched")
-                        values.append(moderate_conf)
-                        colors.append("#8b5cf6")
-                    
-                    # Note: There shouldn't be any "Low" matches below threshold
-                    # since we filter by threshold, but check just in case
-                    low_conf = (scores_matched < thresh_val).sum()
-                    if low_conf > 0:
-                        labels.append(f"Below threshold (<{thresh_val:.2f}): {low_conf}")
-                        parents.append("Matched")
-                        values.append(low_conf)
-                        colors.append("#f59e0b")
-            
-            if no_match > 0:
-                labels.append("No Match")
-                parents.append("All Items")
-                values.append(no_match)
-                colors.append("#e15759")
-            
-            # Create sunburst
-            fig = go.Figure(go.Sunburst(
-                labels=labels,
-                parents=parents,
-                values=values,
-                branchvalues="total",
-                marker=dict(colors=colors),
-                textinfo="label+percent parent",
-                hovertemplate='<b>%{label}</b><br>Count: %{value}<br>%{percentParent}<extra></extra>'
-            ))
-            
-            fig.update_layout(
-                title="Match Statistics Breakdown",
-                height=500
-            )
+        # Hidden chart - uncomment block to re-enable
+        # elif viz_type == "sunburst":
+        #     # Sunburst chart - hierarchical match breakdown
+        #     # Create hierarchical data for sunburst
+        #     total = len(df_clean)
+        #     
+        #     # Calculate match/no-match counts
+        #     if 'status' in df_clean.columns:
+        #         match_mask = df_clean['status'] != 'NO MATCH'
+        #     else:
+        #         match_mask = df_clean['similarity_score'] >= threshold if threshold else df_clean['similarity_score'] >= 0.85
+        #     
+        #     matched = match_mask.sum()
+        #     no_match = total - matched
+        #     
+        #     # Create score bins for matched items
+        #     matched_df = df_clean[match_mask]
+        #     
+        #     # Define score ranges
+        #     labels = []
+        #     parents = []
+        #     values = []
+        #     colors = []
+        #     
+        #     # Root level
+        #     labels.append("All Items")
+        #     parents.append("")
+        #     values.append(total)
+        #     colors.append("#94a3b8")
+        #     
+        #     # Match/No Match level
+        #     if matched > 0:
+        #         labels.append("Matched")
+        #         parents.append("All Items")
+        #         values.append(matched)
+        #         colors.append("#4e79a7")
+        #         
+        #         # Score ranges for matched items - dynamic based on threshold
+        #         if len(matched_df) > 0:
+        #             scores_matched = matched_df['similarity_score']
+        #             
+        #             # Calculate dynamic ranges based on user's threshold
+        #             # Use the actual threshold value, defaulting to 0.85 if not set
+        #             thresh_val = threshold if threshold else 0.85
+        #             
+        #             # High confidence: threshold + 0.10 or higher (capped at 1.0)
+        #             high_threshold = min(thresh_val + 0.10, 1.0)
+        #             high_conf = (scores_matched >= high_threshold).sum()
+        #             if high_conf > 0:
+        #                 labels.append(f"High (≥{high_threshold:.2f}): {high_conf}")
+        #                 parents.append("Matched")
+        #                 values.append(high_conf)
+        #                 colors.append("#059669")
+        #             
+        #             # Good confidence: threshold + 0.05 to threshold + 0.10
+        #             good_lower = thresh_val + 0.05
+        #             good_upper = high_threshold
+        #             if good_lower < 1.0:  # Only show if range is valid
+        #                 good_conf = ((scores_matched >= good_lower) & (scores_matched < good_upper)).sum()
+        #                 if good_conf > 0:
+        #                     labels.append(f"Good ({good_lower:.2f}-{good_upper:.2f}): {good_conf}")
+        #                     parents.append("Matched")
+        #                     values.append(good_conf)
+        #                     colors.append("#0ea5e9")
+        #             
+        #             # Moderate confidence: threshold to threshold + 0.05
+        #             mod_lower = thresh_val
+        #             mod_upper = min(thresh_val + 0.05, 1.0)
+        #             moderate_conf = ((scores_matched >= mod_lower) & (scores_matched < mod_upper)).sum()
+        #             if moderate_conf > 0:
+        #                 labels.append(f"Moderate ({mod_lower:.2f}-{mod_upper:.2f}): {moderate_conf}")
+        #                 parents.append("Matched")
+        #                 values.append(moderate_conf)
+        #                 colors.append("#8b5cf6")
+        #             
+        #             # Note: There shouldn't be any "Low" matches below threshold
+        #             # since we filter by threshold, but check just in case
+        #             low_conf = (scores_matched < thresh_val).sum()
+        #             if low_conf > 0:
+        #                 labels.append(f"Below threshold (<{thresh_val:.2f}): {low_conf}")
+        #                 parents.append("Matched")
+        #                 values.append(low_conf)
+        #                 colors.append("#f59e0b")
+        #     
+        #     if no_match > 0:
+        #         labels.append("No Match")
+        #         parents.append("All Items")
+        #         values.append(no_match)
+        #         colors.append("#e15759")
+        #     
+        #     # Create sunburst
+        #     fig = go.Figure(go.Sunburst(
+        #         labels=labels,
+        #         parents=parents,
+        #         values=values,
+        #         branchvalues="total",
+        #         marker=dict(colors=colors),
+        #         textinfo="label+percent parent",
+        #         hovertemplate='<b>%{label}</b><br>Count: %{value}<br>%{percentParent}<extra></extra>'
+        #     ))
+        #     
+        #     fig.update_layout(
+        #         title="Match Statistics Breakdown",
+        #         height=500
+        #     )
         
         # Add threshold line if requested (but not for sunburst chart where it doesn't apply)
         if show_threshold and threshold and viz_type != "sunburst":
